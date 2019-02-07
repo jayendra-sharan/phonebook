@@ -1,6 +1,6 @@
 var contactsManager = {
   init: function () {
-    new ContactsController (new ContactsModel (), ContactsView ());
+    new ContactsController (new ContactsModel (), new ContactsView ());
   }
 };
 

@@ -9,6 +9,9 @@ var ContactsController = (function () {
 
   function init () {
     this.view.renderLayout (this.rootNode);
+
+    // render the list of contact
+    this.view.renderList (this.model.getMockData());
   }
 
 

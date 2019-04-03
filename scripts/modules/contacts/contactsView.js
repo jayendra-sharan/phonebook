@@ -81,5 +81,35 @@ var ContactsView = (function () {
     return formBody;
   }
 
+  // function to create list of items.
+  CView.prototype.renderList = function (list) {
+    // for each item of the list, render the row.
+    for (var index = 0; index < list.length; index++) {
+      renderRow (this.listContainer, list[index]);
+    }
+  }
+
+  function renderRow (listContainer, item) {
+    var row = template.getElement('div', {
+      'class': 'row-item',
+    });
+
+    // now, iterate over the object and create divs and then append to row.
+    for (var key in item) {
+      var val = item[key];
+      var span = template.getElement('span', {
+        'class': 'col',
+      }, val);
+      row.appendChild(span);
+    }
+
+    // in the end, append row to the listContainer.
+    listContainer.appendChild(row);
+  }
+
+  CView.prototype.createRow = function (item) {
+    renderRow(item);
+  }
+
   return CView;
 }) ();
